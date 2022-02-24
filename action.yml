@@ -1,0 +1,37 @@
+name: 'Corellium'
+description: 'Upload and execute code on a Corellium instance'
+inputs:
+  endpoint:
+    description: 'deployment to use'
+    required: true
+  username:
+    description: 'username to use'
+    required: true
+  password:
+    description: 'password to use'
+    required: true
+  project:
+    description: 'project to operate within'
+    required: true
+  instance:
+    description: 'name of instance to use'
+    required: true
+  snapshot:
+    description: 'name of snapshot to restore'
+    required: false
+    default: ''
+  upload_source:
+    description: 'file to upload'
+    required: true
+  upload_target:
+    description: 'where to upload the file'
+    required: true
+  upload_mode:
+    description: 'permission mode to apply to the uploaded file'
+    required: true
+  run:
+    description: 'shell command(s) to run'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

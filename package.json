@@ -1,0 +1,31 @@
+{
+  "name": "corellium-action",
+  "version": "1.0.0",
+  "description": "Uploads and executes code on a Corellium instance",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frida/corellium-action.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript"
+  ],
+  "author": "Ole André Vadla Ravnås <oleavr@frida.re>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frida/corellium-action/issues"
+  },
+  "homepage": "https://github.com/frida/corellium-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.5",
+    "@corellium/corellium-api": "^1.3.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.3"
+  }
+}
