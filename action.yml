@@ -20,14 +20,8 @@ inputs:
     description: 'name of snapshot to restore'
     required: false
     default: ''
-  upload_source:
-    description: 'file to upload'
-    required: true
-  upload_target:
-    description: 'where to upload the file'
-    required: true
-  upload_mode:
-    description: 'permission mode to apply to the uploaded file'
+  upload:
+    description: 'asset to upload and expose as $ASSET_PATH'
     required: true
   run:
     description: 'shell command(s) to run'

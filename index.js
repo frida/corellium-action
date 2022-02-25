@@ -43,13 +43,16 @@ async function run() {
     await agent.ready();
 
     core.info('[*] Uploading');
-    const uploadSource = core.getInput('upload_source');
-    const uploadTarget = core.getInput('upload_target');
-    await agent.upload(uploadTarget, fs.createReadStream(uploadSource));
-    await agent.shellExec(`chmod ${core.getInput('upload_mode')} '${uploadTarget}'`);
+    const assetPath = await agent.tempFile();
+    await agent.upload(assetPath, fs.createReadStream(core.getInput('upload')));
 
     core.info('[*] Running');
-    const result = await agent.shellExec('(' + core.getInput('run') + ') 2>&1; echo -e "\\n$?"');
+    const result = await agent.shellExec([
+      `export ASSET_PATH='${assetPath}'`,
+      '(' + core.getInput('run') + ') 2>&1',
+      'echo -e "\\n$?"',
+      'rm -f "$ASSET_PATH"'
+    ].join('; '));
 
     const lines = result.output.split('\n');
     const n = lines.length;
