@@ -1,31 +1,21 @@
 name: 'Corellium'
-description: 'Upload and execute code on a Corellium instance'
+description: 'Test code on a Corellium device'
 inputs:
-  endpoint:
-    description: 'deployment to use'
+  token:
+    description: 'The GITHUB_TOKEN secret'
     required: true
-  username:
-    description: 'username to use'
+  gateway:
+    description: 'Gateway to connect to'
     required: true
-  password:
-    description: 'password to use'
+  device:
+    description: 'Name of device to use'
     required: true
-  project:
-    description: 'project to operate within'
-    required: true
-  instance:
-    description: 'name of instance to use'
-    required: true
-  snapshot:
-    description: 'name of snapshot to restore'
-    required: false
-    default: ''
   upload:
-    description: 'asset to upload and expose as $ASSET_PATH'
+    description: 'Asset to upload and expose as $ASSET_PATH'
     required: true
   run:
-    description: 'shell command(s) to run'
+    description: 'Shell command(s) to run'
     required: true
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'

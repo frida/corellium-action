@@ -6,16 +6,14 @@ This uploads and executes code on a Corellium instance.
 
 ```yaml
 steps:
-- uses: frida/corellium-action@v2
+- uses: frida/corellium-action@v3
 - with:
-    endpoint: ${{ secrets.CORELLIUM_ENDPOINT }}
-    username: ${{ secrets.CORELLIUM_USERNAME }}
-    password: ${{ secrets.CORELLIUM_PASSWORD }}
-    project: Frida
-    instance: android-arm64
+    token: ${{ secrets.GITHUB_TOKEN }}
+    gateway: corellium.frida.re
+    device: android-arm64
     upload: runner.tar.gz
     run: |
       cd /data/local/tmp
-      tar xf "$ASSET_PATH"
+      tar xf $ASSET_PATH
       ./gum-tests
 ```
