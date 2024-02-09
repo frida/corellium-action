@@ -6,7 +6,7 @@ This uploads and executes code on a Corellium instance.
 
 ```yaml
 steps:
-- uses: frida/corellium-action@v3
+- uses: frida/corellium-action@v4
 - with:
     token: ${{ secrets.GITHUB_TOKEN }}
     gateway: corellium.frida.re
