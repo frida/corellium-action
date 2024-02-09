@@ -28,6 +28,6 @@
     "split": "^1.0.1"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.33.3"
+    "@vercel/ncc": "^0.38.1"
   }
 }
